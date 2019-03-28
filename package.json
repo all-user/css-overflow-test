@@ -25,8 +25,8 @@
     "watch:js": "BABEL_ENV=browser babel -w -x .es6 ./src -d ./src",
     "build": "run-s ensure build:html build:css build:js",
     "watch": "run-p watch:*",
-    "release:clean": "rimraf ./dist",
-    "release:copy": "cpx \"./src/**/{*.html,*.css,*.js,*.png,*.svg,*.jpg,*.gif,*.pdf,*.appcache}\" ./dist",
+    "release:clean": "rimraf ./docs",
+    "release:copy": "cpx \"./src/**/{*.html,*.css,*.js,*.png,*.svg,*.jpg,*.gif,*.pdf,*.appcache}\" ./docs",
     "release": "run-s release:clean build release:copy",
     "start": "run-p server watch",
     "install": "bin/link-githooks"
