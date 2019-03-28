@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+pwddir=`pwd`
+
+for path in `ls -1 $pwddir/bin/githooks`; do
+  ln -sf ../../bin/githooks/$path $pwddir/.git/hooks/$path
+done

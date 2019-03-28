@@ -1,0 +1,10 @@
+{
+  "env": {
+    "browser": {
+      "presets": ["latest"]
+    },
+    "node": {
+      "presets": ["flow"]
+    }
+  }
+}

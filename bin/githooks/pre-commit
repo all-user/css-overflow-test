@@ -1,0 +1,21 @@
+#!/bin/sh
+
+command -v imagemin >/dev/null 2>&1 || {
+  echo "次のコマンドを実行してimageminとプラグインをインストールしてください"
+  echo "npm i -g imagemin-cli imagemin-mozjpeg imagemin-gifsicle imagemin-pngquant imagemin-optipng imagemin-svgo"
+  exit 1;
+}
+
+for file in `git diff --cached --name-status | \
+  awk '$1 ~ /[AM]/ && tolower($2) ~ /\.(jpe?g|gif|png|svg)$/ {print $2}'`
+do
+  echo $file を最適化します
+  cat $file | imagemin \
+    --plugin=mozjpeg \
+    --plugin=gifsicle \
+    --plugin=pngquant \
+    --plugin=optipng \
+    --plugin=svgo > ${file}.new
+  mv -f ${file}.new $file
+  git add $file
+done

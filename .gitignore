@@ -1,0 +1,12 @@
+/documents/
+/resource/
+/src/index.css
+/src/index.css.map
+/src/css/**/*.css
+/src/css/**/*.css.map
+/src/pages/**/*.css
+/src/pages/**/*.css.map
+/dist/
+/src/json/bundle.json
+/src/index.html
+/src/pages/**/*.html
